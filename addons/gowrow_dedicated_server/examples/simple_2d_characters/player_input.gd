@@ -3,12 +3,15 @@ extends MultiplayerSynchronizer
 
 @export var direction := Vector2.ZERO
 
+@onready var player_character: Character = get_parent() as Character
+
 func _ready() -> void:
-	set_multiplayer_authority(get_parent().player) # TODO: This sucks
-	# Only process for the local player.
+	set_multiplayer_authority(player_character.player)
+
+	# Only process input for the local player.
 	if get_multiplayer_authority() != multiplayer.get_unique_id():
 		set_process(false)
-		GowrowLogger.log("PlayerInput is not the authority, disabling processing.", GowrowLogger.Level.WARNING)
+		return
 
 func _process(delta: float) -> void:
 	direction = Vector2.ZERO

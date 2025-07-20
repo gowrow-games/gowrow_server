@@ -1,0 +1,34 @@
+name: Auto Release "latest" from Main
+
+on:
+  push:
+    branches:
+      - main  # Trigger only on pushes to main
+
+jobs:
+  release:
+    name: Release Addon as "latest"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v3
+
+      - name: "Zip addon"
+        run: |
+          mkdir -p dist
+          cd addons
+          zip -r ../dist/gowrow_dedicated_server.zip gowrow_dedicated_server
+
+      - name: "Create or Update GitHub Release (tag: latest)"
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          name: Latest Development Build
+          body: |
+            This release is automatically updated from the `main` branch.
+          files: dist/gowrow_dedicated_server.zip
+          prerelease: true
+          draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

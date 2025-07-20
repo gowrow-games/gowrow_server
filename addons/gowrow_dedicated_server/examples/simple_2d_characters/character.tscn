@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3wucev5tpyyp"]
+
+[ext_resource type="Texture2D" uid="uid://b0b7f8ft63jhs" path="res://icon.svg" id="1_nblra"]
+[ext_resource type="Script" uid="uid://ce8ao7lxqs6bj" path="res://addons/gowrow_dedicated_server/examples/simple_2d_characters/character.gd" id="2_wb8im"]
+[ext_resource type="Script" uid="uid://b8faccdq3e0h2" path="res://addons/gowrow_dedicated_server/examples/simple_2d_characters/player_input.gd" id="3_rmn2f"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wb8im"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:player")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rmn2f"]
+properties/0/path = NodePath(".:direction")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Character" type="Sprite2D" node_paths=PackedStringArray("label", "input")]
+texture = ExtResource("1_nblra")
+script = ExtResource("2_wb8im")
+label = NodePath("Label")
+input = NodePath("PlayerInput")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -52.0
+offset_top = -88.0
+offset_right = 22.0
+offset_bottom = -65.0
+size_flags_vertical = 1
+text = "123456789"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wb8im")
+
+[node name="PlayerInput" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath(".")
+replication_config = SubResource("SceneReplicationConfig_rmn2f")
+script = ExtResource("3_rmn2f")

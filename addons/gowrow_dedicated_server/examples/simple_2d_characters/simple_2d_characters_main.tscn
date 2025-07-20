@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://f4huheuobnry"]
+
+[ext_resource type="Script" uid="uid://byrs6cgfk7w7a" path="res://addons/gowrow_dedicated_server/examples/simple_2d_characters/simple_2d_characters_main.gd" id="1_kse51"]
+[ext_resource type="PackedScene" uid="uid://d3wucev5tpyyp" path="res://addons/gowrow_dedicated_server/examples/simple_2d_characters/character.tscn" id="2_1njo6"]
+[ext_resource type="Script" uid="uid://bnq8notam8twq" path="res://addons/gowrow_dedicated_server/examples/simple_2d_characters/multiplayer_spawner.gd" id="2_6g86y"]
+
+[node name="Simple2DCharactersMain" type="Node" node_paths=PackedStringArray("players_container")]
+script = ExtResource("1_kse51")
+character_scene = ExtResource("2_1njo6")
+players_container = NodePath("Players")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://d3wucev5tpyyp")
+spawn_path = NodePath("../Players")
+script = ExtResource("2_6g86y")
+character_scene = ExtResource("2_1njo6")
+
+[node name="Players" type="Node" parent="."]

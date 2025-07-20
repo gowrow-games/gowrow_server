@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfrujnv75uesh"]
+
+[ext_resource type="Script" uid="uid://lor6723o61ir" path="res://addons/gowrow_dedicated_server/examples/simple_chat/simple_chat_main.gd" id="1_vv82v"]
+
+[node name="SimpleChatMain" type="Node" node_paths=PackedStringArray("input", "send_button", "chat_display")]
+script = ExtResource("1_vv82v")
+input = NodePath("CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/LineEdit")
+send_button = NodePath("CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Button")
+chat_display = NodePath("CanvasLayer/MarginContainer/VBoxContainer/RichTextLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_following = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Send
+"

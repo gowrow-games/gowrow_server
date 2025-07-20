@@ -5,6 +5,9 @@ on:
     branches:
       - main  # Trigger only on pushes to main
 
+permissions:
+  contents: write  # Allow writing to repository contents
+
 jobs:
   release:
     name: Release Addon as "latest"

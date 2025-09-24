@@ -1,6 +1,6 @@
-# Gowrow Dedicated Server for Godot
+# Gowrow Server for Godot
 
-This is an Addon for Godot that provides a simple dedicated server setup and some networking examples.
+This is an Addon for Godot that provides a simple setup for various networking scenarios and some examples.
 
 ## Installation
 
@@ -11,7 +11,7 @@ If you prefer an automated method, here is the script I use.
 ```cmd
 @echo off
 REM Configurable variables
-set "REPO=gowrow-games/godot_dedicated_server"
+set "REPO=gowrow-games/gowrow_server"
 set "ASSET_NAME=gowrow_dedicated_server.zip"
 set "DEST_DIR=Godot\addons"
 
@@ -37,9 +37,8 @@ echo Done! Extracted to %DEST_DIR%.
 
 ## Planned Features
 
-- 🧩 Clean server/client project structure
+- 🧩 Clean project structure for client/server and peer-to-peer setups
 - 🖥️ Dedicated server entrypoint
 - 🧠 Headless-mode optimized settings
 - 📜 Launch scripts for local development
 - 📁 Easy to clone and customize
-

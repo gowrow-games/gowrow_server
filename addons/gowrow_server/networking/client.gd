@@ -11,9 +11,10 @@ func initialize():
 	if result != OK:
 		push_error("Failed to create client: " + str(result))
 		OS.alert("Failed to create client: " + str(result))
-		return
+		return false
 
 	multiplayer.multiplayer_peer = peer
+	return true
 
 func _client_connected() -> void:
 	GowrowLogger.log("Successfully connected to dedicated server!")

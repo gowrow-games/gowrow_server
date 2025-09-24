@@ -2,8 +2,9 @@
 class_name NetworkHandler
 extends Node
 
-func initialize():
+func initialize() -> bool:
 	push_error("NetworkHandler.initialize() must be implemented by a subclass.")
+	return false
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)

@@ -13,18 +13,14 @@ func _ready() -> void:
 
 func _on_join_button_pressed() -> void:
 	# Client mode
-	GowrowNetwork.handler = ClientHandler.new()
-	GowrowNetwork.add_child(GowrowNetwork.handler)
-	GowrowNetwork.handler.initialize()
+	GowrowNetwork.start_as_client()
 
 	join_button.disabled = true
 	host_button.disabled = true
 
 func _on_host_button_pressed() -> void:
 	# Host mode (server + client)
-	GowrowNetwork.handler = HostHandler.new()
-	GowrowNetwork.add_child(GowrowNetwork.handler)
-	GowrowNetwork.handler.initialize()
+	GowrowNetwork.start_as_host()
 
 	_add_player(1)  # Add local player immediately
 

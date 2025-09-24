@@ -6,13 +6,10 @@ extends Node
 
 func _ready() -> void:
 	# TODO: Improve error handling and allow connection configuration.
-	if not GowrowNetwork.handler:
-		# Client mode
-		GowrowNetwork.handler = ClientHandler.new()
-		GowrowNetwork.add_child(GowrowNetwork.handler)
-	GowrowNetwork.handler.initialize()
+	if not GowrowNetwork.get_network_mode() == GowrowNetwork.NetworkMode.NONE:
+		GowrowNetwork.start_as_client()
 
-	if multiplayer.is_server():
+	if multiplayer.is_server(): # multiplayer.is_server() is still used, rather than NetworkMode, because it covers both SERVER & HOST modes
 
 		multiplayer.peer_connected.connect(_add_player)
 		multiplayer.peer_disconnected.connect(_del_character)

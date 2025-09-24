@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7otyr84aohme"]
+
+[ext_resource type="Script" uid="uid://bayoka2frgwvp" path="res://addons/gowrow_server/examples/simple_2d_characters/p2p/p2p_simple_2d_characters_main.gd" id="1_8na3v"]
+[ext_resource type="PackedScene" uid="uid://d3wucev5tpyyp" path="res://addons/gowrow_server/examples/simple_2d_characters/character.tscn" id="2_ir4rc"]
+
+[node name="P2PSimple2DCharactersMain" type="Node" node_paths=PackedStringArray("players_container")]
+script = ExtResource("1_8na3v")
+character_scene = ExtResource("2_ir4rc")
+players_container = NodePath("Players")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://d3wucev5tpyyp")
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HostButton" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+text = "Join"

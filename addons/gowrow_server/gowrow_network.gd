@@ -14,8 +14,4 @@ func _ready() -> void:
 		GowrowLogger.log("Starting dedicated server...")
 		# TODO: Add support for additional args to control game mode settings.
 		handler = ServerHandler.new()
-	else:
-		GowrowLogger.log("Starting client...")
-		handler = ClientHandler.new()
-
-	add_child(handler)
+		add_child(handler)

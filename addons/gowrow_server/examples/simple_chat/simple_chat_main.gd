@@ -8,6 +8,10 @@ var chat_log = []
 
 func _ready() -> void:
 	# TODO: Improve error handling and allow connection configuration.
+	if not GowrowNetwork.handler:
+		# Client mode
+		GowrowNetwork.handler = ClientHandler.new()
+		GowrowNetwork.add_child(GowrowNetwork.handler)
 	GowrowNetwork.handler.initialize()
 
 	if multiplayer.is_server():

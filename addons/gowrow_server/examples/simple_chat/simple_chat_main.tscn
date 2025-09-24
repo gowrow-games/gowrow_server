@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfrujnv75uesh"]
 
-[ext_resource type="Script" uid="uid://lor6723o61ir" path="res://addons/gowrow_dedicated_server/examples/simple_chat/simple_chat_main.gd" id="1_vv82v"]
+[ext_resource type="Script" uid="uid://lor6723o61ir" path="res://addons/gowrow_server/examples/simple_chat/simple_chat_main.gd" id="1_vv82v"]
 
 [node name="SimpleChatMain" type="Node" node_paths=PackedStringArray("input", "send_button", "chat_display")]
 script = ExtResource("1_vv82v")

@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GowrowNetwork="*res://addons/gowrow_dedicated_server/gowrow_network.gd"
-GowrowLogger="*res://addons/gowrow_dedicated_server/gowrow_logger.gd"
+GowrowNetwork="*res://addons/gowrow_server/gowrow_network.gd"
+GowrowLogger="*res://addons/gowrow_server/gowrow_logger.gd"
 
 [debug]
 

@@ -1,9 +1,8 @@
-class_name Character
 extends Sprite2D
 
 @export var label: Label
 
-@export var input: PlayerInput
+@export var input: Node
 
 @export var player: int = -1
 

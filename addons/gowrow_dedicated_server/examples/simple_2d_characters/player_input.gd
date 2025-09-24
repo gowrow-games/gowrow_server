@@ -1,9 +1,8 @@
-class_name PlayerInput
 extends MultiplayerSynchronizer
 
 @export var direction := Vector2.ZERO
 
-@onready var player_character: Character = get_parent() as Character
+@onready var player_character: Node = get_parent()
 
 func _ready() -> void:
 	set_multiplayer_authority(player_character.player)

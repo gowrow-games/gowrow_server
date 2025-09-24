@@ -21,7 +21,7 @@ func _add_player(id: int) -> void:
 
 	GowrowLogger.log("Spawning Character for player: %d" % id)
 
-	var character: Character = character_scene.instantiate()
+	var character = character_scene.instantiate()
 	character.position = Vector2(
 		randf_range(-100, 100),
 		randf_range(-100, 100)

@@ -33,7 +33,7 @@ gdscript/warnings/static_called_on_instance=2
 
 [dotnet]
 
-project/assembly_name="Godot Dedicated Server"
+project/assembly_name="Gowrow Server"
 
 [editor_plugins]
 
